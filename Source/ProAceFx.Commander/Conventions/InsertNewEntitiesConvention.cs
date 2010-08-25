@@ -10,7 +10,7 @@ namespace ProAceFx.Commander.Conventions
         {
             graph
                 .ChainsForNew
-                .Each(chain => chain.AddAfter(new Wrapper(typeof(InsertEntityCommand<>).MakeGenericType(chain.EntityType))));
+                .Each(chain => chain.Placeholder().AddAfter(new Wrapper(typeof(InsertEntityCommand<>).MakeGenericType(chain.EntityType))));
         }
     }
 }

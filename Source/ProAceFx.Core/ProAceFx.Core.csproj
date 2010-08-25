@@ -31,6 +31,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper">
+      <HintPath>..\..\Lib\AutoMapper\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="LinFu.DynamicProxy">
+      <HintPath>..\..\Lib\AutoMapper\LinFu.DynamicProxy.dll</HintPath>
+    </Reference>
     <Reference Include="NHibernate">
       <HintPath>..\..\Lib\FluentNHibernate\NHibernate.dll</HintPath>
     </Reference>
@@ -45,6 +51,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Infrastructure\MappingRegistry.cs" />
     <Compile Include="Infrastructure\SessionStateProvider.cs" />
     <Compile Include="Infrastructure\StateManager.cs" />
     <Compile Include="Infrastructure\UnitOfWork.cs" />

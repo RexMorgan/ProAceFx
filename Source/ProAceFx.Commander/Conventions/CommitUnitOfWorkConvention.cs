@@ -19,7 +19,9 @@ namespace ProAceFx.Commander.Conventions
 
         private static void AddCommandNode(CommandChain chain)
         {
-            chain.AddAfter(new Wrapper(typeof (CommitUnitOfWorkCommand)));
+            chain
+                .Placeholder()
+                .AddAfter(new Wrapper(typeof (CommitUnitOfWorkCommand)));
         }
     }
 }
