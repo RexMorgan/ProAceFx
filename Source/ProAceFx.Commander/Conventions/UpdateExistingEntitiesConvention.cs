@@ -10,7 +10,12 @@ namespace ProAceFx.Commander.Conventions
         {
             graph
                 .ChainsForExisting
-                .Each(chain => chain.Placeholder().AddAfter(new Wrapper(typeof(UpdateEntityCommand<>).MakeGenericType(chain.EntityType))));
+                .Each(chain =>
+                          {
+                              graph.Observer.RecordCallStatus(chain.Placeholder(), "Adding UpdateEntityCommand directly after placeholder");
+                              chain.Placeholder().AddAfter(
+                                  new Wrapper(typeof (UpdateEntityCommand<>).MakeGenericType(chain.EntityType)));
+                          });
         }
     }
 }

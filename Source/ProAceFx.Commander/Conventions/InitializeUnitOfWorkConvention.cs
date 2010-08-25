@@ -10,15 +10,16 @@ namespace ProAceFx.Commander.Conventions
         {
             graph
                 .ChainsForNew
-                .Each(AddCommandNode);
+                .Each(call => AddCommandNode(graph, call));
 
             graph
                 .ChainsForExisting
-                .Each(AddCommandNode);
+                .Each(call => AddCommandNode(graph, call));
         }
 
-        private static void AddCommandNode(CommandChain chain)
+        private static void AddCommandNode(CommandGraph graph, CommandChain chain)
         {
+            graph.Observer.RecordCallStatus(chain, "Prepending chain with InitializeUnitOfWorkCommand.");
             chain.Prepend(new Wrapper(typeof (InitializeUnitOfWorkCommand)));
         }
     }
