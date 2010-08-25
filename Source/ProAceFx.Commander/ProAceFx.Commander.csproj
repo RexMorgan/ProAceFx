@@ -5,14 +5,13 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{F2D977B1-1AFE-4827-83F0-946563DC756C}</ProjectGuid>
+    <ProjectGuid>{7B70BD4A-B7CC-4842-A4A3-BE940E77A42F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ProAceFx</RootNamespace>
-    <AssemblyName>ProAceFx</AssemblyName>
+    <RootNamespace>ProAceFx.Commander</RootNamespace>
+    <AssemblyName>ProAceFx.Commander</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -32,6 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Commander">
+      <HintPath>..\..\Lib\Commander\Commander.dll</HintPath>
+    </Reference>
     <Reference Include="FubuCore">
       <HintPath>..\..\Lib\FubuMVC\FubuCore.dll</HintPath>
     </Reference>
@@ -43,16 +45,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\CommonAssemblyInfo.cs">
-      <Link>Properties\CommonAssemblyInfo.cs</Link>
-    </Compile>
-    <Compile Include="Infrastructure\IMappingRegistry.cs" />
-    <Compile Include="Infrastructure\IStateManager.cs" />
-    <Compile Include="Infrastructure\IStateProvider.cs" />
-    <Compile Include="Infrastructure\IUnitOfWork.cs" />
-    <Compile Include="Web\IHttpSessionState.cs" />
-    <Compile Include="Web\IJsonService.cs" />
-    <Compile Include="Web\WebMarker.cs" />
+    <Compile Include="CommitUnitOfWorkCommand.cs" />
+    <Compile Include="Conventions\CommitUnitOfWorkConvention.cs" />
+    <Compile Include="Conventions\InitializeUnitOfWorkConvention.cs" />
+    <Compile Include="Conventions\InsertNewEntitiesConvention.cs" />
+    <Compile Include="Conventions\UpdateExistingEntitiesConvention.cs" />
+    <Compile Include="InitializeUnitOfWorkCommand.cs" />
+    <Compile Include="InsertEntityCommand.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UpdateEntityCommand.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ProAceFx\ProAceFx.csproj">
+      <Project>{F2D977B1-1AFE-4827-83F0-946563DC756C}</Project>
+      <Name>ProAceFx</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
