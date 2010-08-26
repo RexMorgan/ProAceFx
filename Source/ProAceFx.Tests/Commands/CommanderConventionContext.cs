@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Commander;
-using Commander.Commander;
+using Commander.Commands;
 using Commander.Registration;
 using Commander.Registration.Dsl;
 using Commander.Registration.Nodes;

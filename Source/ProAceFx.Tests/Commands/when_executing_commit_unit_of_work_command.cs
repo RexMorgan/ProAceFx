@@ -1,4 +1,4 @@
-﻿using Commander.Commander;
+﻿using Commander.Commands;
 using NUnit.Framework;
 using ProAceFx.Commander;
 using ProAceFx.Infrastructure;

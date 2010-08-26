@@ -1,4 +1,4 @@
-﻿using Commander.Commander;
+﻿using Commander.Commands;
 using ProAceFx.Infrastructure;
 
 namespace ProAceFx.Commander
