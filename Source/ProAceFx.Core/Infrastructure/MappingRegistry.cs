@@ -24,6 +24,19 @@ namespace ProAceFx.Core.Infrastructure
 	    /// <summary>
 	    /// Maps the source object to the specified destination type.
 	    /// </summary>
+	    /// <typeparam name="TSource"></typeparam>
+	    /// <typeparam name="TDestination"></typeparam>
+	    /// <param name="source"></param>
+	    /// <param name="destination"></param>
+	    /// <returns></returns>
+	    public TDestination Map<TSource, TDestination>(TSource source, TDestination destination) where TDestination : class
+	    {
+	        return Mapper.Map(source, destination);
+	    }
+
+	    /// <summary>
+	    /// Maps the source object to the specified destination type.
+	    /// </summary>
 	    /// <param name="destinationType"></param>
 	    /// <param name="source"></param>
 	    /// <param name="sourceType"></param>
@@ -31,6 +44,19 @@ namespace ProAceFx.Core.Infrastructure
 	    public object Map(Type sourceType, Type destinationType, object source)
 	    {
 	        return Mapper.Map(source, sourceType, destinationType);
+	    }
+
+	    /// <summary>
+	    /// Maps the source object to the specified destination type.
+	    /// </summary>
+	    /// <param name="destinationType"></param>
+	    /// <param name="source"></param>
+	    /// <param name="sourceType"></param>
+	    /// <param name="destination"></param>
+	    /// <returns></returns>
+	    public object Map(Type sourceType, Type destinationType, object source, object destination)
+	    {
+            return Mapper.Map(source, destination, sourceType, destinationType);
 	    }
 	}
 }
