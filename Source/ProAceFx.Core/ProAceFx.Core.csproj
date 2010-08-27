@@ -37,8 +37,14 @@
     <Reference Include="LinFu.DynamicProxy">
       <HintPath>..\..\Lib\AutoMapper\LinFu.DynamicProxy.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation">
+      <HintPath>..\..\Lib\Microsoft\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
     <Reference Include="NHibernate">
       <HintPath>..\..\Lib\FluentNHibernate\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="StructureMap">
+      <HintPath>..\..\Lib\StructureMap\StructureMap.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -51,6 +57,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AutoMapper\AutoMapperConfigurationExtensions.cs" />
+    <Compile Include="AutoMapper\IMapper.cs" />
+    <Compile Include="Configuration\ProAceCoreRegistry.cs" />
+    <Compile Include="Configuration\ProAceInfrastructureRegistry.cs" />
+    <Compile Include="Configuration\ProAceWebRegistry.cs" />
+    <Compile Include="Infrastructure\CoreInfrastructureMarker.cs" />
     <Compile Include="Infrastructure\MappingRegistry.cs" />
     <Compile Include="Infrastructure\SessionStateProvider.cs" />
     <Compile Include="Infrastructure\StateManager.cs" />
