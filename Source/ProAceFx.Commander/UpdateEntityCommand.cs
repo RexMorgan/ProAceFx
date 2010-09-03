@@ -19,7 +19,15 @@ namespace ProAceFx.Commander
         protected override DoNext PerformInvoke()
         {
             var entity = _commandContext.Get<TEntity>();
-            _unitOfWork.Update(entity);
+            if(_commandContext.Get<DeleteEntityRequest>() != null)
+            {
+                _unitOfWork.Delete(entity);
+            }
+            else
+            {
+                _unitOfWork.Update(entity);
+            }
+            
             return DoNext.Continue;
         }
     }

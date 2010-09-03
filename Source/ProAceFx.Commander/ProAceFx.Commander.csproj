@@ -50,6 +50,8 @@
     <Compile Include="Conventions\InitializeUnitOfWorkConvention.cs" />
     <Compile Include="Conventions\InsertNewEntitiesConvention.cs" />
     <Compile Include="Conventions\UpdateExistingEntitiesConvention.cs" />
+    <Compile Include="DeleteEntityCommand.cs" />
+    <Compile Include="DeleteEntityRequest.cs" />
     <Compile Include="InitializeUnitOfWorkCommand.cs" />
     <Compile Include="InsertEntityCommand.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
