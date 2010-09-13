@@ -3,7 +3,6 @@ using System.Linq;
 using Commander;
 using Commander.Commands;
 using Commander.Registration;
-using Commander.Registration.Dsl;
 using Commander.Registration.Nodes;
 using Commander.StructureMap;
 using NUnit.Framework;
@@ -16,7 +15,7 @@ namespace ProAceFx.Tests.Commands
     {
         protected override void  BeforeEach()
         {
-            CommanderFactory.Initialize(new StructureMapContainerFacility(Container), new ConventionContextCommandRegistry());
+            CommanderFactory.Initialize(new StructureMapCommanderContainer(Container), new ConventionContextCommandRegistry());
         }
 
         [Test]
