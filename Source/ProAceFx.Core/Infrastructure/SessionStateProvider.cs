@@ -25,11 +25,10 @@ namespace ProAceFx.Core.Infrastructure
 
         public object Get(Type type)
         {
-            var serializedState = _sessionState
-                                    .Get(_keyGenerator(type))
-                                    .ToString();
+            var state = _sessionState
+                .Get(_keyGenerator(type));
 
-            return _jsonService.Deserialize(type, serializedState);
+            return (state == null) ? Activator.CreateInstance(type) : _jsonService.Deserialize(type, state.ToString());
         }
 
         public void Set<T>(T instance)
