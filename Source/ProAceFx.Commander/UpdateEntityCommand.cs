@@ -19,7 +19,7 @@ namespace ProAceFx.Commander
         protected override DoNext PerformInvoke()
         {
             var entity = _commandContext.Get<TEntity>();
-            if(_commandContext.Get<DeleteEntityRequest>() != null)
+            if(_commandContext.Has<DeleteEntityRequest>())
             {
                 _unitOfWork.Delete(entity);
             }
