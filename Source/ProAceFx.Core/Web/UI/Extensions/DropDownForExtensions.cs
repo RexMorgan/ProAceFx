@@ -9,19 +9,19 @@ namespace ProAceFx.Core.Web.UI.Extensions
 {
     public static class DropDownForExtensions
     {
-        public static HtmlTag DropDownFor<TInputModel>(this FubuPage page, Expression<Func<TInputModel, object>> expression, IDictionary<int, string> options, bool includeDefault)
+        public static HtmlTag DropDownFor<TInputModel>(this IFubuPage page, Expression<Func<TInputModel, object>> expression, IDictionary<int, string> options, bool includeDefault)
                where TInputModel : class
         {
             return DropDownFor(page, null, expression, options, includeDefault);
         }
 
-        public static HtmlTag DropDownFor<TInputModel>(this FubuPage<TInputModel> page, Expression<Func<TInputModel, object>> expression, IDictionary<int, string> options, bool includeDefault)
+        public static HtmlTag DropDownFor<TInputModel>(this IFubuPage<TInputModel> page, Expression<Func<TInputModel, object>> expression, IDictionary<int, string> options, bool includeDefault)
             where TInputModel : class
         {
             return DropDownFor(page, page.Model, expression, options, includeDefault);
         }
 
-        public static HtmlTag DropDownFor<TInputModel>(this FubuPage page, TInputModel inputModel, Expression<Func<TInputModel, object>> expression, IDictionary<int, string> options, bool includeDefault)
+        public static HtmlTag DropDownFor<TInputModel>(this IFubuPage page, TInputModel inputModel, Expression<Func<TInputModel, object>> expression, IDictionary<int, string> options, bool includeDefault)
                where TInputModel : class
         {
             var unaryExpression = expression.Body as UnaryExpression;
