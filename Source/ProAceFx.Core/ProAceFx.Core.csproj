@@ -34,6 +34,12 @@
     <Reference Include="AutoMapper">
       <HintPath>..\..\Lib\AutoMapper\AutoMapper.dll</HintPath>
     </Reference>
+    <Reference Include="FubuMVC.Core">
+      <HintPath>..\..\Lib\FubuMVC\FubuMVC.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="HtmlTags">
+      <HintPath>..\..\Lib\FubuMVC\HtmlTags.dll</HintPath>
+    </Reference>
     <Reference Include="LinFu.DynamicProxy">
       <HintPath>..\..\Lib\AutoMapper\LinFu.DynamicProxy.dll</HintPath>
     </Reference>
@@ -71,6 +77,7 @@
     <Compile Include="Web\CoreWebMarker.cs" />
     <Compile Include="Web\HttpSessionState.cs" />
     <Compile Include="Web\JsonService.cs" />
+    <Compile Include="Web\UI\Extensions\DropDownForExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ProAceFx\ProAceFx.csproj">

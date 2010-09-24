@@ -304,6 +304,21 @@ namespace ProAceFx.Tests
             }
         }
 
+        public static void ShouldHaveOne<T>(this IEnumerable<T> source, Func<T, bool> anyClause)
+        {
+            Assert.IsTrue(source.Count(anyClause) == 1);
+        }
+
+        public static void ShouldHaveAtLeastOne<T>(this IEnumerable<T> source, Func<T, bool> anyClause)
+        {
+            Assert.IsTrue(source.Any(anyClause));
+        }
+
+        public static void ShouldNotHaveAny<T>(this IEnumerable<T> source, Func<T, bool> anyClause)
+        {
+            Assert.IsFalse(source.Any(anyClause));
+        }
+
         public static IComparable ShouldBeGreaterThan(this IComparable arg1, IComparable arg2)
         {
             Assert.Greater(arg1, arg2);

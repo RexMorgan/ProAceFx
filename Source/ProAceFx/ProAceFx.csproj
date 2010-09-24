@@ -53,6 +53,9 @@
     <Compile Include="Infrastructure\IUnitOfWork.cs" />
     <Compile Include="Web\IHttpSessionState.cs" />
     <Compile Include="Web\IJsonService.cs" />
+    <Compile Include="Web\Models\JqGrid\JqGridInputModel.cs" />
+    <Compile Include="Web\Models\JqGrid\JqGridResultModel.cs" />
+    <Compile Include="Web\Models\JqGrid\JqGridRow.cs" />
     <Compile Include="Web\WebMarker.cs" />
   </ItemGroup>
   <ItemGroup />
