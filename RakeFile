@@ -13,6 +13,7 @@ COPYRIGHT = 'Copyright 2010 Joshua Arnold, Jarrod Peace, et al. All rights reser
 COMMON_ASSEMBLY_INFO = 'Source/CommonAssemblyInfo.cs';
 CLR_VERSION = "v3.5"
 COMPILE_TARGET = "debug"
+build_number = ""
 
 props = { :archive => "Build" }
 
@@ -20,7 +21,7 @@ desc "Compiles and runs unit tests"
 task :all => [:default]
 
 desc "**Default**, compiles and runs tests"
-task :default => [:compile, :unit_test]
+task :default => [:compile, :unit_test, :package]
 
 desc "Update the version information for the build"
 assemblyinfo :version do |asm|
@@ -63,12 +64,6 @@ msbuild :compile => [:clean, :version] do |msb|
   msb.properties :configuration => COMPILE_TARGET
   msb.targets :Clean, :Build
   msb.solution = "Source/#{ROOT_NAMESPACE}.sln"
-  
-  outDir = "Source/#{ROOT_NAMESPACE}.Tests/bin/#{COMPILE_TARGET}"
-    
-  Dir.glob(File.join(outDir, "*.{dll,xml,pdb}")){|file| 		
-	copy(file, props[:archive]) if File.file?(file)
-  }
 end
 
 desc "Runs all unit tests"
@@ -76,4 +71,10 @@ nunit :unit_test do |nunit|
 	nunit.path_to_command = "lib/NUnit/nunit-console.exe"
 	nunit.assemblies "Source/#{ROOT_NAMESPACE}.Tests/bin/debug/#{ROOT_NAMESPACE}.Tests.dll"
   nunit.parameters "/xml:#{RESULTS_DIR}/nunit_results.xml"
+end
+
+zip :package do |zip|
+	zip.directories_to_zip "Source/#{ROOT_NAMESPACE}.Tests/bin/#{COMPILE_TARGET}"
+	zip.output_file = "#{ROOT_NAMESPACE}.#{build_number}.zip"
+	zip.output_path = "#{props[:archive]}/"
 end
